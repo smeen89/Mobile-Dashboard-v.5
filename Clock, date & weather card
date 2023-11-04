@@ -1,0 +1,159 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    entity: sensor.time
+    show_state: false
+    show_icon: false
+    show_name: false
+    show_label: true
+    label: |
+      [[[
+        return (states['sensor.time'].state);
+      ]]]
+    styles:
+      label:
+        - font-size: 60px
+        - font-weight: 500
+        - color: var(--primary-text-color)
+      card:
+        - background-color: transparent
+        - height: 50px
+        - margin-top: 30px
+    tap_action:
+      action: fire-dom-event
+      browser_mod:
+        service: browser_mod.popup
+        data:
+          content:
+            type: vertical-stack
+            cards:
+              - type: custom:button-card
+                entity: sensor.veckodagstorbokstav
+                show_state: false
+                show_icon: false
+                show_name: false
+                show_label: true
+                label: |
+                  [[[
+                    return states['sensor.veckodagstorbokstav'].state + ' den ' + states['sensor.dagsnummer'].state + ' ' + states['sensor.manad'].state;
+                  ]]]
+                styles:
+                  label:
+                    - font-size: 18px
+                    - font-weight: 400
+                    - justify-self: left
+                    - margin-left: 10px
+                  card:
+                    - background-color: transparent
+                    - height: 30px
+                    - margin-top: 10px
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                style: |
+                  ha-card {
+                    box-shadow: none;
+                  }     
+              - type: custom:home-feed-card
+                calendars:
+                  - calendar.sebastian_delad_kalender
+                  - calendar.sara_delad_kalender
+                  - calendar.sebastian_privat_kalender
+                calendar_time_format: datetime
+                calendar_days_forward: 5
+                show_icons: false
+                card_mod:
+                  style: |
+                    ha-card {
+                      }
+                    ha-markdown {
+                      font-size: 14px;
+                      font-weight: 500;
+                      text-align: center;
+                      }
+    hold_action:
+      action: none
+    style: |
+      ha-card {
+        box-shadow: none;
+      }
+  - type: custom:button-card
+    entity: sensor.veckodagstorbokstav
+    show_state: false
+    show_icon: false
+    show_name: false
+    show_label: true
+    label: |
+      [[[
+        return states['sensor.veckodagstorbokstav'].state + ' den ' + states['sensor.dagsnummer'].state + ' ' + states['sensor.manad'].state;
+      ]]]
+    styles:
+      label:
+        - font-size: 18px
+        - font-weight: 400
+        - margin-left: 10px
+        - color: var(--primary-text-color)
+      card:
+        - background-color: transparent
+        - height: 10px
+        - margin-top: '-10px'
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    style: |
+      ha-card {
+        box-shadow: none;
+      }     
+  - type: custom:mushroom-chips-card
+    chips:
+      - type: weather
+        entity: weather.smhi_home
+        show_conditions: true
+        show_temperature: true
+        double_tap_action:
+          action: none
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              content:
+                type: vertical-stack
+                cards:
+                  - type: weather-forecast
+                    show_current: false
+                    show_forecast: true
+                    entity: weather.smhi_home
+                    forecast_type: daily
+                    card_mod:
+                      style: |
+                        ha-card > div.forecast {
+                          font-size: 18px;
+                          font-weight: 000;
+                        }
+                        ha-card > div.forecast > div:nth-child(1n) > div.temp {
+                          font-size: 16px;
+                          font-weight: 400;
+                        }
+                  - type: custom:horizon-card
+                    style: |
+                      ha-card {
+                        --hc-sun-color: rgb(252,216,73);
+                        --hc-moon-color: rgb(252,216,73);
+                        --hc-moon-spot-color: transparent;
+                      }
+        hold_action:
+          action: none
+    alignment: center
+    card_mod:
+      style: |
+        ha-card {
+          --chip-box-shadow: none;
+          --chip-background: none;
+          --chip-font-size: 18px;
+          --chip-font-weight: 400
+          height: 20px !important;
+          margin-top: -13px;
+          margin-bottom: 20px;
