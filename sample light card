@@ -1,0 +1,91 @@
+type: custom:stack-in-card
+keep:
+  background: true
+  box_shadow: false
+  margin: true
+  border_radius: true
+  outer_padding: false
+cards:
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout_options:
+      grid-template-columns: 30% 70%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "left right"
+    cards:
+      - type: custom:button-card
+        entity: light.entre
+        show_icon: true
+        show_name: false
+        show_state: false
+        aspect_ratio: 1/1
+        size: 50%
+        icon: mdi:lightbulb
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+        state:
+          - value: 'on'
+            styles:
+              card:
+                - background-color: var(--dark-yellow)
+          - value: 'off'
+            styles:
+              card:
+                - background-color: var(--dark-grey)
+        styles:
+          card:
+            - box-shadow: none
+            - border-radius: 100%
+            - width: 44px
+            - height: 44px
+            - margin: 4px 0px 0px 4px;
+          icon:
+            - color: rgb(255, 255, 255, 1)
+      - type: custom:button-card
+        entity: light.entre
+        show_icon: false
+        show_name: true
+        show_state: false
+        show_label: true
+        name: Lampor
+        label: |
+          [[[
+              if (( states["light.entre"].state == 'on') && ( states["sensor.antal_tanda_lampor_entre"].state == '1')) return states["sensor.antal_tanda_lampor_entre"].state +" tänd";
+              if (( states["light.entre"].state == 'on') && ( states["sensor.antal_tanda_lampor_entre"].state > '1')) return states["sensor.antal_tanda_lampor_entre"].state +" tända";
+              else return 'Av';
+          ]]]
+        tap_action:
+          action: navigate
+          navigation_path: /mobil-21/lamporentre
+        hold_action:
+          action: none
+        styles:
+          card:
+            - box-shadow: none
+            - background: transparent
+            - height: 50px
+          name:
+            - justify-self: left
+            - margin-top: 10px
+            - font-size: 16px
+            - margin-left: 6px
+            - font-weight: 500
+          label:
+            - font-size: 13px
+            - justify-self: left
+            - margin-left: 6px
+            - font-weight: 500
+            - margin-top: 4px
+style: |
+  ha-card {
+    {% if states('light.entre') == "on" %}
+    background: var(--light-yellow);
+    {% else %}
+    background: var(--light-grey);
+    {% endif %}
+    border-radius: 20px;
+    box-shadow: none;
+          }
