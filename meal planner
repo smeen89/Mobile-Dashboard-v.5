@@ -1,0 +1,1962 @@
+type: custom:swipe-card
+cards:
+  - type: custom:stack-in-card
+    keep:
+      background: true
+      box_shadow: false
+      margin: true
+      border_radius: true
+      outer_padding: false
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout_options:
+          grid-template-columns: 15% 85%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "left right"
+        cards:
+          - type: custom:button-card
+            entity: input_button.veckomeny
+            icon: hue:room-dining
+            show_icon: true
+            show_name: false
+            show_state: false
+            aspect_ratio: 1/1
+            size: 50%
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                service: browser_mod.popup
+                data:
+                  content:
+                    type: custom:stack-in-card
+                    keep:
+                      background: true
+                      box_shadow: false
+                      margin: true
+                      border_radius: true
+                      outer_padding: false
+                    cards:
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Veckomeny
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 18px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-top: 15px
+                            - margin-left: 28px
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Söndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_sondag
+                            name: Söndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Måndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_mandag
+                            name: Måndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Tisdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_tisdag
+                            name: Tisdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Onsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_onsdag
+                            name: Onsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Torsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_torsdag
+                            name: Torsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Fredag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_fredag
+                            name: Fredag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Lördag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_lordag
+                            name: Lördag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: var(--veckomeny-background-color);
+                        }
+            hold_action:
+              action: none
+            styles:
+              card:
+                - box-shadow: none
+                - border-radius: 100%
+                - width: 44px
+                - height: 44px
+                - margin: 4px 0px 0px 4px;
+                - background: var(--dark-grey)
+              icon:
+                - color: rgba(255, 255, 255, 1)
+          - type: custom:button-card
+            entity: input_button.veckomeny
+            name: |
+              [[[
+                return states["sensor.veckodagstorbokstav"].state
+              ]]]
+            show_icon: false
+            show_name: true
+            show_state: false
+            show_label: true
+            label: |
+              [[[
+                  if ( states["sensor.veckodag"].state == 'måndag') return states["input_text.meny_mandag"].state;
+                  else if ( states["sensor.veckodag"].state == 'tisdag') return states["input_text.meny_tisdag"].state;
+                  else if ( states["sensor.veckodag"].state == 'onsdag') return states["input_text.meny_onsdag"].state;
+                  else if ( states["sensor.veckodag"].state == 'torsdag') return states["input_text.meny_torsdag"].state;
+                  else if ( states["sensor.veckodag"].state == 'fredag') return states["input_text.meny_fredag"].state;
+                  else if ( states["sensor.veckodag"].state == 'lördag') return states["input_text.meny_lordag"].state;
+                  else return states["input_text.meny_sondag"].state;
+              ]]]
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                service: browser_mod.popup
+                data:
+                  content:
+                    type: custom:stack-in-card
+                    keep:
+                      background: true
+                      box_shadow: false
+                      margin: true
+                      border_radius: true
+                      outer_padding: false
+                    cards:
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Veckomeny
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 18px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-top: 15px
+                            - margin-left: 28px
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Söndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_sondag
+                            name: Söndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Måndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_mandag
+                            name: Måndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Tisdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_tisdag
+                            name: Tisdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Onsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_onsdag
+                            name: Onsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Torsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_torsdag
+                            name: Torsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Fredag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_fredag
+                            name: Fredag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Lördag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_lordag
+                            name: Lördag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: var(--veckomeny-background-color);
+                        }
+            hold_action:
+              action: none
+            styles:
+              card:
+                - box-shadow: none
+                - background: transparent
+                - height: 50px
+              name:
+                - justify-self: left
+                - margin-top: 10px
+                - font-size: 16px
+                - margin-left: 6px
+                - font-weight: 500
+              label:
+                - font-size: 13px
+                - justify-self: left
+                - margin-left: 6px
+                - font-weight: 500
+                - margin-top: 4px
+    style: |
+      ha-card {
+        border-radius: 20px;
+        background: var(--light-grey);
+        box-shadow: none;
+              }
+  - type: custom:stack-in-card
+    keep:
+      background: true
+      box_shadow: false
+      margin: true
+      border_radius: true
+      outer_padding: false
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout_options:
+          grid-template-columns: 15% 85%
+          grid-template-rows: auto
+          grid-template-areas: |
+            "left right"
+        cards:
+          - type: custom:button-card
+            entity: input_button.veckomeny
+            icon: hue:room-dining
+            show_icon: true
+            show_name: false
+            show_state: false
+            aspect_ratio: 1/1
+            size: 50%
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                service: browser_mod.popup
+                data:
+                  content:
+                    type: custom:stack-in-card
+                    keep:
+                      background: true
+                      box_shadow: false
+                      margin: true
+                      border_radius: true
+                      outer_padding: false
+                    cards:
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Veckomeny
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 18px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-top: 15px
+                            - margin-left: 28px
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Söndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_sondag
+                            name: Söndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Måndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_mandag
+                            name: Måndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Tisdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_tisdag
+                            name: Tisdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Onsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_onsdag
+                            name: Onsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Torsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_torsdag
+                            name: Torsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Fredag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_fredag
+                            name: Fredag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Lördag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_lordag
+                            name: Lördag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: var(--veckomeny-background-color);
+                        }
+            hold_action:
+              action: none
+            styles:
+              card:
+                - box-shadow: none
+                - border-radius: 100%
+                - width: 44px
+                - height: 44px
+                - margin: 4px 0px 0px 4px;
+                - background: var(--dark-grey)
+              icon:
+                - color: rgba(255, 255, 255, 1)
+          - type: custom:button-card
+            entity: input_button.veckomeny
+            name: Imorgon
+            show_icon: false
+            show_name: true
+            show_state: false
+            show_label: true
+            label: |
+              [[[
+                  if ( states["sensor.veckodag"].state == 'måndag') return states["input_text.meny_tisdag"].state;
+                  else if ( states["sensor.veckodag"].state == 'tisdag') return states["input_text.meny_onsdag"].state;
+                  else if ( states["sensor.veckodag"].state == 'onsdag') return states["input_text.meny_torsdag"].state;
+                  else if ( states["sensor.veckodag"].state == 'torsdag') return states["input_text.meny_fredag"].state;
+                  else if ( states["sensor.veckodag"].state == 'fredag') return states["input_text.meny_lordag"].state;
+                  else if ( states["sensor.veckodag"].state == 'lördag') return states["input_text.meny_sondag"].state;
+                  else return states["input_text.meny_mandag"].state;
+              ]]]
+            tap_action:
+              action: fire-dom-event
+              browser_mod:
+                service: browser_mod.popup
+                data:
+                  content:
+                    type: custom:stack-in-card
+                    keep:
+                      background: true
+                      box_shadow: false
+                      margin: true
+                      border_radius: true
+                      outer_padding: false
+                    cards:
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Veckomeny
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 18px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-top: 15px
+                            - margin-left: 28px
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Veckomeny
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 18px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-top: 15px
+                            - margin-left: 28px
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Söndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_sondag
+                            name: Söndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Måndag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_mandag
+                            name: Måndag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Tisdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_tisdag
+                            name: Tisdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Onsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_onsdag
+                            name: Onsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Torsdag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_torsdag
+                            name: Torsdag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Fredag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_fredag
+                            name: Fredag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                      - type: custom:button-card
+                        entity: input_button.veckomeny
+                        name: Lördag
+                        tap_action:
+                          action: none
+                        hold_action:
+                          action: none
+                        show_state: false
+                        show_name: true
+                        show_icon: false
+                        styles:
+                          card:
+                            - background-color: transparent
+                            - margin-bottom: '-20px'
+                            - margin-top: '-15px'
+                          name:
+                            - color: var(--primary-text-color)
+                            - font-size: 14px
+                            - font-weight: 500
+                            - justify-self: left
+                            - margin-left: 28px
+                      - type: entities
+                        entities:
+                          - entity: input_text.meny_lordag
+                            name: Lördag
+                            icon: ' '
+                            card_mod:
+                              style:
+                                ha-textfield $: |
+                                  .mdc-text-field {
+                                    border-radius: 20px !important;
+                                    height: 40px !important;
+                                  }  
+                                  .mdc-line-ripple::after,
+                                  .mdc-line-ripple::before {
+                                    border-bottom-style: none !important;
+                                  }
+                                  .mdc-text-field__input {
+                                    align-self: center;
+                                  }
+                                  span#label {
+                                    display: none;
+                                  }
+                                .: |
+                                  ha-textfield {
+                                    height: 40px;
+                                  }
+                                hui-generic-entity-row $: |
+                                  state-badge {
+                                    display: none;
+                                  }          
+                                  :host {
+                                    --mdc-text-field-fill-color: var(--light-grey);
+                                    --mdc-text-field-ink-color: var(--primary-text-color);
+                                    --mdc-text-field-label-ink-color: var(--primary-text-color);
+                                    --mdc-theme-primary: var(--primary-text-color);
+                                  }
+                        show_header_toggle: false
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: var(--veckomeny-background-color);
+                        }
+            hold_action:
+              action: none
+            styles:
+              card:
+                - box-shadow: none
+                - background: transparent
+                - height: 50px
+              name:
+                - justify-self: left
+                - margin-top: 10px
+                - font-size: 16px
+                - margin-left: 6px
+                - font-weight: 500
+              label:
+                - font-size: 13px
+                - justify-self: left
+                - margin-left: 6px
+                - font-weight: 500
+                - margin-top: 4px
+    style: |
+      ha-card {
+        border-radius: 20px;
+        background: var(--light-grey);
+        box-shadow: none;
+              }
