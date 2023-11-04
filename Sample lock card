@@ -1,0 +1,93 @@
+type: custom:stack-in-card
+keep:
+  background: true
+  box_shadow: false
+  margin: true
+  border_radius: true
+  outer_padding: false
+cards:
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout_options:
+      grid-template-columns: 30% 70%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "left right"
+    cards:
+      - type: custom:button-card
+        entity: lock.huvudentre
+        show_icon: true
+        show_name: false
+        show_state: false
+        aspect_ratio: 1/1
+        size: 50%
+        icon: |
+          [[[
+              if ( states["binary_sensor.dorrsensor_entre_contact"].state == 'on') return 'mdi:door-open';
+              if ( states["lock.huvudentre"].state == 'unlocked') return 'mdi:lock-open';
+              else return 'mdi:lock';
+          ]]]
+        tap_action:
+          action: none
+        hold_action:
+          action: toggle
+        styles:
+          card:
+            - box-shadow: none
+            - border-radius: 100%
+            - width: 44px
+            - height: 44px
+            - margin: 4px 0px 0px 4px;
+            - background-color: |
+                [[[
+                    if ( states["binary_sensor.dorrsensor_entre_contact"].state == 'on') return 'rgb(111,171,113)';
+                    if ( states["lock.huvudentre"].state == 'unlocked') return 'rgb(111,171,113)';
+                    else return 'var(--dark-red)';
+                ]]] 
+          icon:
+            - color: rgb(255, 255, 255, 1)
+      - type: custom:button-card
+        entity: lock.huvudentre
+        name: Huvudentre
+        show_icon: false
+        show_name: true
+        show_state: false
+        show_label: true
+        label: |
+          [[[
+              if ( states['binary_sensor.dorrsensor_entre_contact'].state == 'on') return 'Öppen';
+              else if ( states['sensor.huvudentre_las'].state == 'låst') return 'Låst';
+              else if ( states['sensor.huvudentre_las'].state == 'olåst') return 'Olåst';
+              
+          ]]]
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        styles:
+          card:
+            - box-shadow: none
+            - background: transparent
+            - height: 50px
+          name:
+            - justify-self: left
+            - margin-top: 10px
+            - font-size: 16px
+            - margin-left: 6px
+            - font-weight: 500
+          label:
+            - font-size: 13px
+            - justify-self: left
+            - margin-left: 6px
+            - font-weight: 500
+            - margin-top: 4px
+style: |
+  ha-card {
+    {% if states('lock.huvudentre') == "locked" %}
+    background: var(--light-red);
+    {% else %}
+    background: var(--light-green);
+    {% endif %}
+    border-radius: 20px;
+    box-shadow: none;
+          }
