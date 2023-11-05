@@ -1,0 +1,211 @@
+type: custom:stack-in-card
+keep:
+  background: true
+  box_shadow: false
+  margin: true
+  border_radius: true
+  outer_padding: false
+cards:
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout_options:
+      grid-template-columns: 30% 70%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "left right"
+    cards:
+      - type: custom:button-card
+        entity: light.entre
+        show_icon: true
+        show_name: false
+        show_state: false
+        aspect_ratio: 1/1
+        size: 50%
+        tap_action:
+          action: toggle
+        hold_action:
+          action: none
+        styles:
+          card:
+            - box-shadow: none
+            - border-radius: 100%
+            - width: 44px
+            - height: 44px
+            - margin: 4px 0px 0px 4px;
+            - background-color: |
+                [[[
+                  if (states["light.entre"].state == 'on') return 'var(--dark-yellow)';
+                  else return 'var(--dark-grey)';
+                ]]]
+          icon:
+            - color: rgb(255, 255, 255, 1)
+      - type: custom:button-card
+        entity: light.entre
+        show_icon: false
+        show_name: true
+        show_state: false
+        show_label: true
+        icon: mdi:lightbulb
+        label: |
+          [[[
+            if (states["light.entre"].state == 'on') return 'På';
+            else return 'Av';
+          ]]]
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              content:
+                type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    entity: light.entre
+                    show_icon: false
+                    show_name: true
+                    show_state: false
+                    name: Ljusstyrka
+                    tap_action:
+                      action: none
+                    hold_action:
+                      action: none
+                    styles:
+                      card:
+                        - background: transparent
+                      name:
+                        - justify-self: left
+                        - margin-left: 10px
+                        - font-size: 20px
+                        - font-weight: 400
+                    card_mod:
+                      style: |
+                        ha-card {
+                          box-shadow: none;
+                  - type: custom:my-slider-v2
+                    entity: light.entre_lampor_pa
+                    vertical: false
+                    styles:
+                      card:
+                        - height: 44px
+                      container:
+                        - width: 100%
+                        - height: 100%
+                        - position: relative
+                        - overflow: hidden
+                        - border-radius: 20px
+                        - background: transparent
+                      track:
+                        - width: 100%
+                        - height: 100%
+                        - position: relative
+                        - background: var(--light-grey)
+                        - box-shadow: inset 0px 10px 9px -10px rgb(0,0,0,0.25)
+                      progress:
+                        - height: 100%
+                        - background: var(--dark-yellow)
+                        - position: absolute
+                        - width: 100%
+                      thumb:
+                        - height: 100%
+                        - background: null
+                        - position: absolute
+                        - right: '-5px'
+                        - width: 0px
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: transparent;
+                          box-shadow: none;
+                        }
+                  - type: custom:button-card
+                    entity: light.entre
+                    show_icon: false
+                    show_name: true
+                    show_state: false
+                    name: Temperatur
+                    tap_action:
+                      action: none
+                    hold_action:
+                      action: none
+                    styles:
+                      card:
+                        - background: transparent
+                      name:
+                        - justify-self: left
+                        - margin-left: 10px
+                        - font-size: 20px
+                        - font-weight: 400
+                    card_mod:
+                      style: |
+                        ha-card {
+                          box-shadow: none;
+                  - type: custom:my-slider-v2
+                    entity: light.entre_lampor_pa_temp
+                    colorMode: temperature
+                    vertical: false
+                    styles:
+                      card:
+                        - height: 44px
+                      container:
+                        - width: 100%
+                        - height: 100%
+                        - position: relative
+                        - overflow: hidden
+                        - border-radius: 20px
+                        - background: transparent
+                      track:
+                        - width: 100%
+                        - height: 100%
+                        - position: relative
+                        - background: var(--slider-temperature-gradient)
+                      progress:
+                        - height: 100%
+                        - background: transparent
+                        - position: absolute
+                        - width: 100%
+                      thumb:
+                        - height: 52%
+                        - background: rgba(0,0,0,0.6)
+                        - position: absolute
+                        - right: 0px
+                        - width: 2px
+                        - border-radius: 40px
+                        - border-top: 10px solid rgba(255,255,255,1)
+                        - border-bottom: 10px solid rgba(255,255,255,1)
+                        - border-left: 3px solid rgba(255,255,255,1)
+                        - border-right: 3px solid rgba(255,255,255,1)
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background: transparent;
+                          box-shadow: none;
+                        }
+        hold_action:
+          action: none
+        styles:
+          card:
+            - box-shadow: none
+            - background: transparent
+            - height: 50px
+          name:
+            - justify-self: left
+            - margin-top: 10px
+            - font-size: 16px
+            - font-weight: 500
+            - margin-left: 6px
+          label:
+            - font-size: 13px
+            - justify-self: left
+            - font-weight: 500
+            - margin-top: 4px
+            - margin-left: 6px
+style: |
+  ha-card {
+    {% if states('light.entre') == "on" %}
+    background: var(--light-yellow);
+    {% else %}
+    background: var(--light-grey);
+    {% endif %}
+    border-radius: 20px;
+    box-shadow: none;
+          }
