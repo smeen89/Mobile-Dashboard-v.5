@@ -4,7 +4,7 @@ dismissable: true
 card:
   type: custom:stack-in-card
   keep:
-    background: trueccc
+    background: true
     box_shadow: false
     margin: true
     border_radius: true
